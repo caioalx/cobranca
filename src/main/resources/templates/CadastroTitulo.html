@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8"/>
-<title>Cadastro de título</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-</head>
-<body>
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
 	
-	<nav class="navbar navbar-inverse navbar-static-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	        <img alt="Algaworks" src="/images/logo-algaworks.png"/>
-	      </a>
-	    </div>
-	  </div>
-	</nav>
+<head>
+	<title>Cadastro de título</title>
+</head>
 
+<section layout:fragment="conteudo">
 	<form class="form-horizontal" method="POST" action="/titulos">
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}"></span>
@@ -26,7 +16,10 @@
 
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    <h3 class="panel-title">Novo título</h3>
+		  	<div class="clearfix">
+		   		<h3 class="panel-title aw-titulo-panel">Novo título</h3>
+		   		<a class="btn btn-link aw-link-panel" href="/titulos">Voltar para pesquisa</a>
+		   	</div>
 		  </div>
 		  
 		  <div class="panel-body">
@@ -73,9 +66,6 @@
 		</div>	
 
 	</form>
-
+</section>	
 	
-<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-</body>
-</html>
+</html>	
