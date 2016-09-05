@@ -38,6 +38,8 @@ public class TituloController {
 	@RequestMapping
 	public ModelAndView pesquisar(){
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
+		List<Titulo> lista = titulos.findAll();
+		mv.addObject("titulos", lista);
 		return mv;
 	}
 	
