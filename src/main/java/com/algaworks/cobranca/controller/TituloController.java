@@ -65,7 +65,7 @@ public class TituloController {
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes){
 		titulos.delete(codigo);
 		
-		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso");
+		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
 		
 		return "redirect:/titulos";
 	}
