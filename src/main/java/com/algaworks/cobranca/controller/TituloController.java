@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -40,10 +41,16 @@ public class TituloController {
 			return CADASTRO_VIEW;
 		}
 		
-		titulos.save(titulo);
+		try{
+			titulos.save(titulo);
+			
+			attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+			return "redirect:/titulos/novo";
+		}catch(DataIntegrityViolationException e){
+			erros.rejectValue("dataVencimento", null, "Formato de data inválido.");
+			return CADASTRO_VIEW;
+		}
 		
-		attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
-		return "redirect:/titulos/novo";
 	}
 	
 	@RequestMapping
