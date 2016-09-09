@@ -88,6 +88,11 @@ public class Titulo {
 	public boolean isPendente(){
 		return StatusTitulo.PENDENTE.equals(status);
 	}
+	
+	public void receber(){
+		setStatus(StatusTitulo.RECEBIDO);
+	}
+	
 
 	@Override
 	public int hashCode() {
