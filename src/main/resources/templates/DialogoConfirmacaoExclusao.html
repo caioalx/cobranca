@@ -4,7 +4,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	
 	<div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
-		<form th:attr="data-url-base='/titulos'" method="POST">
+		<form th:attr="data-url-base=@{/titulos}" method="POST">
 			<input type="hidden" name="_method" value="DELETE"/>
 			
 			<div class="modal-dialog">
